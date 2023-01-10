@@ -1,13 +1,18 @@
 """
 Useful Miscellaneous Utilities which can be reused at multiple places in a Python Code
 """
+from __future__ import annotations
 
 import os
 import re
-from typing import Any, Callable, Dict, Iterator, List, Optional, Tuple
+from typing import Any
+from typing import Callable
+from typing import Dict
+from typing import Iterator
+from typing import List
 
 
-def find_all_in_dict(data: Dict[str, Any], search_key: str) -> List[Any]:
+def find_all_in_dict(data: dict[str, Any], search_key: str) -> list[Any]:
     """
     Function to Find/Search any Key in a Nested Dictionary.
     Args:
@@ -16,7 +21,7 @@ def find_all_in_dict(data: Dict[str, Any], search_key: str) -> List[Any]:
     Returns:
         List: List of Found Values matching with the Keys
     """
-    result: List = []
+    result: list = []
     if search_key in data:
         result.append(data[search_key])
     for key in data.keys():
@@ -28,7 +33,7 @@ def find_all_in_dict(data: Dict[str, Any], search_key: str) -> List[Any]:
     return result
 
 
-def find_all_in_list(data: List[Any], search_key: str) -> List[Any]:
+def find_all_in_list(data: list[Any], search_key: str) -> list[Any]:
     """
     Function to Find/Search any Key in a Nested List.
     Args:
@@ -36,7 +41,7 @@ def find_all_in_list(data: List[Any], search_key: str) -> List[Any]:
         search_key (str): Key to search
     Returns:
     """
-    result: List = []
+    result: list = []
     for val in data:
         if isinstance(val, Dict):
             result.extend(find_all_in_dict(val, search_key))
@@ -45,7 +50,7 @@ def find_all_in_list(data: List[Any], search_key: str) -> List[Any]:
     return result
 
 
-def dict_with(data: Dict[str, Any], keys: List[Any]) -> Dict[str, Any]:
+def dict_with(data: dict[str, Any], keys: list[Any]) -> dict[str, Any]:
     """
     Function to Create a Dict with the given keys.
     Args:
@@ -54,7 +59,7 @@ def dict_with(data: Dict[str, Any], keys: List[Any]) -> Dict[str, Any]:
     Returns:
         Dict: Dict to given keys
     """
-    result: Dict = {}
+    result: dict = {}
     if not keys:
         return result
     for key in data.keys():
@@ -63,7 +68,7 @@ def dict_with(data: Dict[str, Any], keys: List[Any]) -> Dict[str, Any]:
     return result
 
 
-def deeep_flatten(array: List[Any]) -> Iterator[Any]:
+def deeep_flatten(array: list[Any]) -> Iterator[Any]:
     """Flattens arbitrarily-nested list `array` into single-dimensional."""
     while array:
         if isinstance(array[0], List):
@@ -72,7 +77,7 @@ def deeep_flatten(array: List[Any]) -> Iterator[Any]:
             yield array.pop(0)
 
 
-def rec_flatten_list(nested_list: List[Any]) -> List[Any]:
+def rec_flatten_list(nested_list: list[Any]) -> list[Any]:
     """Flatten Any List"""
     if not nested_list:
         return nested_list
@@ -81,7 +86,7 @@ def rec_flatten_list(nested_list: List[Any]) -> List[Any]:
     return nested_list[:1] + rec_flatten_list(nested_list[1:])
 
 
-def has_common(list1: List[Any], list2: List[Any]) -> bool:
+def has_common(list1: list[Any], list2: list[Any]) -> bool:
     """
     Function to check if list1 and list2 have common elements
     Args:
@@ -116,7 +121,7 @@ def remove_parenthesis(string: str) -> str:
     return string.replace("(", "").replace(")", "")
 
 
-def multi_split(string: str, pattern: str) -> List[str]:
+def multi_split(string: str, pattern: str) -> list[str]:
     """
     Function to split a string into multiple substrings based on regex pattern
     Args:
@@ -128,7 +133,7 @@ def multi_split(string: str, pattern: str) -> List[str]:
     return re.split(pattern, string)
 
 
-def predicate_splitter(string: str, pattern="AND|OR") -> List[str]:
+def predicate_splitter(string: str, pattern="AND|OR") -> list[str]:
     """
     Function to split a string into multiple substrings based on regex pattern
     Args:
@@ -140,7 +145,7 @@ def predicate_splitter(string: str, pattern="AND|OR") -> List[str]:
     return multi_split(string, pattern)
 
 
-def get_files(path, suffix: Optional[Tuple[str]] = None) -> List[str]:
+def get_files(path, suffix: tuple[str] | None = None) -> list[str]:
     """
     Function to get all files in a directory
     Args:
@@ -157,11 +162,11 @@ def get_files(path, suffix: Optional[Tuple[str]] = None) -> List[str]:
     return fullpaths
 
 
-def _map(func: Callable, data: List[Any]) -> List[Any]:
+def _map(func: Callable, data: list[Any]) -> list[Any]:
     """Wrapper over python's map fucntion"""
     return [*map(func, data)]
 
 
-def _filter(func: Callable, data: List[Any]) -> List[Any]:
+def _filter(func: Callable, data: list[Any]) -> list[Any]:
     """Wrapper over python map fucntion"""
     return [*filter(func, data)]
