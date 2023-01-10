@@ -5,11 +5,7 @@ from __future__ import annotations
 
 import os
 import re
-from typing import Any
-from typing import Callable
-from typing import Dict
-from typing import Iterator
-from typing import List
+from typing import Any, Callable, Dict, Iterator, List
 
 
 def find_all_in_dict(data: dict[str, Any], search_key: str) -> list[Any]:

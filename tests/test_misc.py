@@ -1,8 +1,7 @@
 """ PyTest for py_helper misc.py"""
 from __future__ import annotations
 
-from pyhelper.misc import find_all_in_dict
-from pyhelper.misc import find_all_in_list
+from pyhelper.misc import find_all_in_dict, find_all_in_list
 
 
 def test_find_all_in_dict(sample_nested_dict):
