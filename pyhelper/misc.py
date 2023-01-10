@@ -1,6 +1,7 @@
 """
 Useful Miscellaneous Utilities which can be reused at multiple places in a Python Code
 """
+
 from __future__ import annotations
 
 import os
@@ -8,7 +9,7 @@ import re
 from typing import Any, Callable, Dict, Iterator, List
 
 
-def find_all_in_dict(data: dict[str, Any], search_key: str) -> list[Any]:
+def find_all_in_dict(data: dict[str, Any], search_key: str) -> List[Any]:
     """
     Function to Find/Search any Key in a Nested Dictionary.
     Args:
@@ -29,7 +30,7 @@ def find_all_in_dict(data: dict[str, Any], search_key: str) -> list[Any]:
     return result
 
 
-def find_all_in_list(data: list[Any], search_key: str) -> list[Any]:
+def find_all_in_list(data: List[Any], search_key: str) -> List[Any]:
     """
     Function to Find/Search any Key in a Nested List.
     Args:
@@ -46,7 +47,7 @@ def find_all_in_list(data: list[Any], search_key: str) -> list[Any]:
     return result
 
 
-def dict_with(data: dict[str, Any], keys: list[Any]) -> dict[str, Any]:
+def dict_with(data: dict[str, Any], keys: List[Any]) -> dict[str, Any]:
     """
     Function to Create a Dict with the given keys.
     Args:
@@ -64,7 +65,7 @@ def dict_with(data: dict[str, Any], keys: list[Any]) -> dict[str, Any]:
     return result
 
 
-def deeep_flatten(array: list[Any]) -> Iterator[Any]:
+def deeep_flatten(array: List[Any]) -> Iterator[Any]:
     """Flattens arbitrarily-nested list `array` into single-dimensional."""
     while array:
         if isinstance(array[0], List):
@@ -73,7 +74,7 @@ def deeep_flatten(array: list[Any]) -> Iterator[Any]:
             yield array.pop(0)
 
 
-def rec_flatten_list(nested_list: list[Any]) -> list[Any]:
+def rec_flatten_list(nested_list: List[Any]) -> List[Any]:
     """Flatten Any List"""
     if not nested_list:
         return nested_list
@@ -82,7 +83,7 @@ def rec_flatten_list(nested_list: list[Any]) -> list[Any]:
     return nested_list[:1] + rec_flatten_list(nested_list[1:])
 
 
-def has_common(list1: list[Any], list2: list[Any]) -> bool:
+def has_common(list1: List[Any], list2: List[Any]) -> bool:
     """
     Function to check if list1 and list2 have common elements
     Args:
@@ -117,7 +118,7 @@ def remove_parenthesis(string: str) -> str:
     return string.replace("(", "").replace(")", "")
 
 
-def multi_split(string: str, pattern: str) -> list[str]:
+def multi_split(string: str, pattern: str) -> List[str]:
     """
     Function to split a string into multiple substrings based on regex pattern
     Args:
@@ -129,7 +130,7 @@ def multi_split(string: str, pattern: str) -> list[str]:
     return re.split(pattern, string)
 
 
-def predicate_splitter(string: str, pattern="AND|OR") -> list[str]:
+def predicate_splitter(string: str, pattern="AND|OR") -> List[str]:
     """
     Function to split a string into multiple substrings based on regex pattern
     Args:
@@ -141,7 +142,7 @@ def predicate_splitter(string: str, pattern="AND|OR") -> list[str]:
     return multi_split(string, pattern)
 
 
-def get_files(path, suffix: tuple[str] | None = None) -> list[str]:
+def get_files(path, suffix: tuple[str] | None = None) -> List[str]:
     """
     Function to get all files in a directory
     Args:
@@ -158,11 +159,11 @@ def get_files(path, suffix: tuple[str] | None = None) -> list[str]:
     return fullpaths
 
 
-def _map(func: Callable, data: list[Any]) -> list[Any]:
+def _map(func: Callable, data: List[Any]) -> List[Any]:
     """Wrapper over python's map fucntion"""
     return [*map(func, data)]
 
 
-def _filter(func: Callable, data: list[Any]) -> list[Any]:
+def _filter(func: Callable, data: List[Any]) -> List[Any]:
     """Wrapper over python map fucntion"""
     return [*filter(func, data)]

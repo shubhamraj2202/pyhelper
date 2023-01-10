@@ -1,4 +1,6 @@
 """ Cnftest for py-helper """
+from __future__ import annotations
+
 from typing import Dict, List
 
 import pytest
@@ -11,7 +13,7 @@ def sample_nested_dict() -> Dict:
         "a": {
             "b": {"c": {"d": {"e": {"f": {"g": {"h": {"i": "j", "k": [1, 2, 3]}}}}}}},
             "l": [4, 5, 6],
-        }
+        },
     }
 
 
