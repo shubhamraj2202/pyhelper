@@ -17,14 +17,6 @@ repos:
     hooks:
     -   id: black
 
-# Reorder Imports
--   repo: https://github.com/asottile/reorder_python_imports
-    rev: v3.9.0
-    hooks:
-    -   id: reorder-python-imports
-        exclude: ^(pre_commit/resources/|testing/resources/python3_hooks_repo/)
-        args: [--py37-plus, --add-import, 'from __future__ import annotations']
-
 # Sort Imports
 -   repo: https://github.com/pycqa/isort
     rev: 5.11.2
