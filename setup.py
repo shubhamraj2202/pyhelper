@@ -9,10 +9,14 @@ setup(
     version="1.0.1",
     description="Python Library Containing Generic Utilities and Helper Functions",
     long_description=open("README.md", encoding="utf-8").read(),
+    long_description_content_type="text/markdown",
     author="Shubham Raj",
     author_email="shubhamraj2202@gmail.com",
-    url="https://www.linkedin.com/in/shubhamraj2202/",
+    url="https://github.com/shubhamraj2202/pyhelper",
     packages=find_packages(include=["pyhelper", "pyhelper.*"]),
     install_requires=[],
     tests_require=["pytest"],
+    project_urls={
+        "Bug Reports": "https://github.com/shubhamraj2202/pyhelper/issues",
+    },
 )
