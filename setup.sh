@@ -9,6 +9,6 @@ python3 -m pipenv sync -d
 # Install Pre-Commit
 python3 -m pipenv run pre-commit install
 # Setup CI Test Requirements
-python3 -m pipenv requirements --dev > .github/workflows/ci-test-requirements.txt
+python3 -m pipenv requirements --dev > ci-test-requirements.txt
 # Enter Shell
 python3 -m pipenv shell
